@@ -16,10 +16,10 @@ import java.util.Date;
 @ApiModel(value = "co2信息",description = "")
 @Table(name="CO2_INFO")
 public class Co2Info implements Serializable,Cloneable{
-    /** 租户号 */
+    /** co2排放信息id */
     @Id
     @GeneratedValue
-    @ApiModelProperty(name = "租户号",notes = "")
+    @ApiModelProperty(name = "co2排放信息id",notes = "")
     private String co2Info ;
     /** 观测日期 */
     @ApiModelProperty(name = "观测日期",notes = "")
@@ -33,6 +33,32 @@ public class Co2Info implements Serializable,Cloneable{
     /** 当天化石燃料燃烧产生的CO2 */
     @ApiModelProperty(name = "当天化石燃料燃烧产生的CO2",notes = "")
     private Double dailyCo2FromFossilFuel ;
+
+    public Co2Info(String co2Info, Date observationDate, Double standardCoalEmissionFactor, Double dailyCo2FromStandardCoalConsumptionfossilFuel, Double dailyCo2FromFossilFuel) {
+        this.co2Info = co2Info;
+        this.observationDate = observationDate;
+        this.standardCoalEmissionFactor = standardCoalEmissionFactor;
+        this.dailyCo2FromStandardCoalConsumptionfossilFuel = dailyCo2FromStandardCoalConsumptionfossilFuel;
+        this.dailyCo2FromFossilFuel = dailyCo2FromFossilFuel;
+    }
+
+    public Co2Info(Date observationDate, Double standardCoalEmissionFactor, Double dailyCo2FromStandardCoalConsumptionfossilFuel, Double dailyCo2FromFossilFuel) {
+        this.observationDate = observationDate;
+        this.standardCoalEmissionFactor = standardCoalEmissionFactor;
+        this.dailyCo2FromStandardCoalConsumptionfossilFuel = dailyCo2FromStandardCoalConsumptionfossilFuel;
+        this.dailyCo2FromFossilFuel = dailyCo2FromFossilFuel;
+    }
+
+    @Override
+    public String toString() {
+        return "Co2Info{" +
+                "co2Info='" + co2Info + '\'' +
+                ", observationDate=" + observationDate +
+                ", standardCoalEmissionFactor=" + standardCoalEmissionFactor +
+                ", dailyCo2FromStandardCoalConsumptionfossilFuel=" + dailyCo2FromStandardCoalConsumptionfossilFuel +
+                ", dailyCo2FromFossilFuel=" + dailyCo2FromFossilFuel +
+                '}';
+    }
 
     /** 租户号 */
     public String getCo2Info(){
