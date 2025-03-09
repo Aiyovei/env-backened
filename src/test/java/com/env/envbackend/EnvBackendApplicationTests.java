@@ -14,13 +14,15 @@ class EnvBackendApplicationTests {
 
     @Test
     void contextLoads() throws IOException {
-        List<String[]> strings = POIExcelUtil.readExcel("test.xlsx",2);
+        List<String[]> strings = POIExcelUtil.readExcel("C:\\Users\\21125\\Desktop\\test.xlsx",3);
         strings.stream().forEach( array ->{
             Arrays.stream(array).forEach(
                     item-> System.out.print(item+' '));
             System.out.println();
                 });
+        System.out.println("\n\n\n");
 
     }
+
 
 }

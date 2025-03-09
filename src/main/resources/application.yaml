@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: env-backend
+  datasource:
+    username: root
+    password: HeavyfogElysia1024
+    url: jdbc:mysql://8.130.77.37:3306/co2_foot?serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
