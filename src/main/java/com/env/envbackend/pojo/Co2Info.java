@@ -4,6 +4,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 
 import java.io.Serializable;
@@ -15,6 +16,7 @@ import java.util.Date;
  */
 @ApiModel(value = "co2信息",description = "")
 @Table(name="CO2_INFO")
+@Data
 public class Co2Info implements Serializable,Cloneable{
     /** co2排放信息id */
     @Id
