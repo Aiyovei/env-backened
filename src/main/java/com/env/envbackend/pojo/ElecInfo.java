@@ -30,6 +30,17 @@ public class ElecInfo implements Serializable,Cloneable {
 
     @ApiModelProperty(name = "当天电耗碳排放",notes = "")
     private Integer dailyElectricityCO2Emissions;
+    public ElecInfo(Date observationDate, Integer wastewaterPlantElectricityConsumption, BigDecimal electricityCarbonEmissionFactor, Integer dailyElectricityCO2Emissions) {
+        this.observationDate = observationDate;
+        this.wastewaterPlantElectricityConsumption = wastewaterPlantElectricityConsumption;
+        this.electricityCarbonEmissionFactor = electricityCarbonEmissionFactor;
+        this.dailyElectricityCO2Emissions = dailyElectricityCO2Emissions;
+    }
+
+    public ElecInfo(Integer elecId, Date observationDate, Integer wastewaterPlantElectricityConsumption, BigDecimal electricityCarbonEmissionFactor, Integer dailyElectricityCO2Emissions) {
+        this(observationDate,wastewaterPlantElectricityConsumption,electricityCarbonEmissionFactor,dailyElectricityCO2Emissions);
+        this.elecId = elecId;
+    }
 
     @Override
     public String toString() {
@@ -42,10 +53,5 @@ public class ElecInfo implements Serializable,Cloneable {
                 '}';
     }
 
-    public ElecInfo(Date observationDate, Integer wastewaterPlantElectricityConsumption, BigDecimal electricityCarbonEmissionFactor, Integer dailyElectricityCO2Emissions) {
-        this.observationDate = observationDate;
-        this.wastewaterPlantElectricityConsumption = wastewaterPlantElectricityConsumption;
-        this.electricityCarbonEmissionFactor = electricityCarbonEmissionFactor;
-        this.dailyElectricityCO2Emissions = dailyElectricityCO2Emissions;
-    }
+
 }
