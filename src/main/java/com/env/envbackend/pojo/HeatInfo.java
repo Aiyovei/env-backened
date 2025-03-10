@@ -29,7 +29,10 @@ public class HeatInfo implements Serializable, Cloneable {
     private Integer purchasedStandardCoalUsage;
 
     @ApiModelProperty(name = "当天化石燃料燃烧产生的碳排放", notes = "")
-    private BigDecimal dailyFossilFuelCO2Emissions;
+    private BigDecimal dailyFossilFuelCo2Emissions;
+
+    @ApiModelProperty(name = "水厂id",notes = "")
+    private Integer factoryId ;
 
     @Override
     public String toString() {
@@ -38,15 +41,24 @@ public class HeatInfo implements Serializable, Cloneable {
                 ", observationDate=" + observationDate +
                 ", standardCoalEmissionFactor=" + standardCoalEmissionFactor +
                 ", purchasedStandardCoalUsage=" + purchasedStandardCoalUsage +
-                ", dailyFossilFuelCO2Emissions=" + dailyFossilFuelCO2Emissions +
+                ", dailyFossilFuelCo2Emissions=" + dailyFossilFuelCo2Emissions +
                 '}';
     }
 
-    public HeatInfo(Date observationDate, BigDecimal standardCoalEmissionFactor, Integer purchasedStandardCoalUsage, BigDecimal dailyFossilFuelCO2Emissions) {
+    public HeatInfo(Date observationDate, BigDecimal standardCoalEmissionFactor, Integer purchasedStandardCoalUsage, BigDecimal dailyFossilFuelCo2Emissions, Integer factoryId) {
         this.observationDate = observationDate;
         this.standardCoalEmissionFactor = standardCoalEmissionFactor;
         this.purchasedStandardCoalUsage = purchasedStandardCoalUsage;
-        this.dailyFossilFuelCO2Emissions = dailyFossilFuelCO2Emissions;
+        this.dailyFossilFuelCo2Emissions = dailyFossilFuelCo2Emissions;
+        this.factoryId = factoryId;
+    }
+    public HeatInfo(Integer heatId,Date observationDate, BigDecimal standardCoalEmissionFactor, Integer purchasedStandardCoalUsage, BigDecimal dailyFossilFuelCo2Emissions, Integer factoryId) {
+        this(observationDate,
+        standardCoalEmissionFactor,
+        purchasedStandardCoalUsage,
+        dailyFossilFuelCo2Emissions,
+        factoryId);
+        this.heatId = heatId;
     }
 
 }
