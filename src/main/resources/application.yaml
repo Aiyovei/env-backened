@@ -6,7 +6,12 @@ spring:
     password: HeavyfogElysia1024
     url: jdbc:mysql://8.130.77.37:3306/co2_foot?serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
-mybatis:
-  type-aliases-package: com.env.envbackend.pojo
 
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  type-aliases-package: com.env.envbackend.pojo
+logging:
+  level:
+    com.lucifer.springboot.cache.mapper: debug
 
