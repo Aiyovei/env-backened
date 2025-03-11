@@ -35,20 +35,26 @@ public class Co2Info implements Serializable,Cloneable{
     /** 当天化石燃料燃烧产生的CO2 */
     @ApiModelProperty(name = "当天化石燃料燃烧产生的CO2",notes = "")
     private Double dailyCo2FromFossilFuel ;
+    /** 水厂id */
+    @ApiModelProperty(name = "水厂id",notes = "")
+    private Integer factoryId ;
 
-    public Co2Info(String co2Info, Date observationDate, Double standardCoalEmissionFactor, Double dailyCo2FromStandardCoalConsumptionfossilFuel, Double dailyCo2FromFossilFuel) {
+    public Co2Info(String co2Info, Date observationDate, Double standardCoalEmissionFactor, Double dailyCo2FromStandardCoalConsumptionfossilFuel, Double dailyCo2FromFossilFuel,Integer factoryId) {
+
+        this(observationDate,
+        standardCoalEmissionFactor,
+        dailyCo2FromStandardCoalConsumptionfossilFuel,
+        dailyCo2FromFossilFuel,
+        factoryId);
         this.co2Info = co2Info;
-        this.observationDate = observationDate;
-        this.standardCoalEmissionFactor = standardCoalEmissionFactor;
-        this.dailyCo2FromStandardCoalConsumptionfossilFuel = dailyCo2FromStandardCoalConsumptionfossilFuel;
-        this.dailyCo2FromFossilFuel = dailyCo2FromFossilFuel;
     }
 
-    public Co2Info(Date observationDate, Double standardCoalEmissionFactor, Double dailyCo2FromStandardCoalConsumptionfossilFuel, Double dailyCo2FromFossilFuel) {
+    public Co2Info(Date observationDate, Double standardCoalEmissionFactor, Double dailyCo2FromStandardCoalConsumptionfossilFuel, Double dailyCo2FromFossilFuel,Integer factoryId) {
         this.observationDate = observationDate;
         this.standardCoalEmissionFactor = standardCoalEmissionFactor;
         this.dailyCo2FromStandardCoalConsumptionfossilFuel = dailyCo2FromStandardCoalConsumptionfossilFuel;
         this.dailyCo2FromFossilFuel = dailyCo2FromFossilFuel;
+        this.factoryId=factoryId;
     }
 
     @Override
@@ -59,9 +65,18 @@ public class Co2Info implements Serializable,Cloneable{
                 ", standardCoalEmissionFactor=" + standardCoalEmissionFactor +
                 ", dailyCo2FromStandardCoalConsumptionfossilFuel=" + dailyCo2FromStandardCoalConsumptionfossilFuel +
                 ", dailyCo2FromFossilFuel=" + dailyCo2FromFossilFuel +
+                ", factoryId=" + factoryId +
                 '}';
     }
 
+    /** 水厂id */
+    public Integer getFactoryId(){
+        return this.factoryId;
+    }
+    /** 水厂id */
+    public void setFactoryId(Integer factoryId){
+        this.factoryId=factoryId;
+    }
     /** 租户号 */
     public String getCo2Info(){
         return this.co2Info;
