@@ -13,7 +13,7 @@ public interface WaterVolumeMapper {
      * @param waterId 要查询的水量信息id
      * @return 水量信息对象
      */
-    @Select("SELECT * FROM WATERVOLUME WHERE water_id = #{waterId}")
+    @Select("SELECT * FROM WATERVOLUME WHERE Water_id = #{waterId}")
     WaterVolume findByWaterId(@Param("waterId") String waterId);
     /**
      * 插入新的水量信息记录。

@@ -56,6 +56,9 @@ public class WaterVolume implements Serializable,Cloneable{
     /** 污泥生成量(DS) */
     @ApiModelProperty(name = "污泥生成量(DS)",notes = "")
     private Double sludgeGeneration ;
+    /** 工厂id */
+    @ApiModelProperty(name = "工厂id",notes = "")
+    private Integer factorId ;
 
     @Override
     public String toString() {
@@ -71,10 +74,42 @@ public class WaterVolume implements Serializable,Cloneable{
                 ", effluentBod5=" + effluentBod5 +
                 ", effluentAmmoniaN=" + effluentAmmoniaN +
                 ", sludgeGeneration=" + sludgeGeneration +
+                ", factorId=" + factorId +
                 '}';
     }
 
-    public WaterVolume(Date observationDate, Integer influentWaterFlow, Double influentTotalNitrogen, Double effluentTotalNitrogen, Double influentCod, Double effluentCod, Double influentBod5, Double effluentBod5, Double effluentAmmoniaN, Double sludgeGeneration) {
+    public Integer getFactorId() {
+        return factorId;
+    }
+
+    public void setFactorId(Integer factorId) {
+        this.factorId = factorId;
+    }
+
+    public WaterVolume(String waterId, Date observationDate, Integer influentWaterFlow, Double influentTotalNitrogen,
+                       Double effluentTotalNitrogen, Double influentCod,
+                       Double effluentCod, Double influentBod5,
+                       Double effluentBod5, Double effluentAmmoniaN,
+                       Double sludgeGeneration,Integer factorId) {
+
+        this(observationDate,
+        influentWaterFlow,
+        influentTotalNitrogen,
+         effluentTotalNitrogen,
+         influentCod,
+        effluentCod,
+        influentBod5,
+        effluentBod5,
+        effluentAmmoniaN,
+        sludgeGeneration,
+        factorId);
+        this.waterId = waterId;
+    }
+
+    public WaterVolume(Date observationDate, Integer influentWaterFlow, Double influentTotalNitrogen,
+                       Double effluentTotalNitrogen, Double influentCod, Double effluentCod,
+                       Double influentBod5, Double effluentBod5, Double effluentAmmoniaN,
+                       Double sludgeGeneration,Integer factorId) {
         this.observationDate = observationDate;
         this.influentWaterFlow = influentWaterFlow;
         this.influentTotalNitrogen = influentTotalNitrogen;
@@ -85,6 +120,7 @@ public class WaterVolume implements Serializable,Cloneable{
         this.effluentBod5 = effluentBod5;
         this.effluentAmmoniaN = effluentAmmoniaN;
         this.sludgeGeneration = sludgeGeneration;
+        this.factorId = factorId;
     }
 
     /** 水量信息id */
