@@ -1,5 +1,7 @@
 package com.env.envbackend.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -22,6 +24,7 @@ public class N2oInfo implements Serializable,Cloneable{
     /** n2o信息id */
     @Id
     @GeneratedValue
+    @TableId(type = IdType.AUTO)
     @ApiModelProperty(name = "n2o信息id",notes = "")
     private String n2oId ;
     /** 观测日期 */

@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.env.envbackend.pojo.DisinfectantInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.data.domain.Pageable;
 
 
@@ -16,6 +17,7 @@ import org.springframework.data.domain.Pageable;
  */
 @Mapper
 public interface DisinfectantInfoMapper extends BaseMapper<DisinfectantInfo> {
+    
     /**
      * 通过ID查询单条数据
      *
@@ -73,4 +75,7 @@ public interface DisinfectantInfoMapper extends BaseMapper<DisinfectantInfo> {
      * @return 影响行数
      */
     int deleteById(String disinfectantId);
+    @Select("SELECT * FROM DISINFECTANT_INFO\n" +
+            "WHERE Factory_Id = #{factoryId};")
+    List<DisinfectantInfo> queryByFactoryId(Integer factoryId);
 }
