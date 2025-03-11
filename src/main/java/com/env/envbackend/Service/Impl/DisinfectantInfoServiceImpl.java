@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -81,7 +82,21 @@ public class DisinfectantInfoServiceImpl implements DisinfectantInfoService {
     }
 
     @Override
-    public List<DisinfectantInfo> queryFactoryId(Integer factoryId) {
+    public List<DisinfectantInfo> queryDailyEmissionFactoryId(Integer factoryId) {
         return disinfectantInfoMapper.queryByFactoryId(factoryId);
     }
+
+
+
+    public Double queryAllDisInfectantInfoByFactoryId(Integer factoryId){
+        List<DisinfectantInfo> disinfectantInfos = disinfectantInfoMapper.queryByFactoryId(factoryId);
+        Double res =0.0;
+        for (DisinfectantInfo dis :
+                disinfectantInfos) {
+            res+=dis.getDailyDisinfectantCo2Emissions();
+        }
+
+        return res;
+    }
+
 }

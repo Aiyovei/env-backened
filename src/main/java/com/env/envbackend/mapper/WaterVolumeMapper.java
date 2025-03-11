@@ -1,13 +1,17 @@
 package com.env.envbackend.mapper;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.env.envbackend.pojo.WaterVolume;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Insert;
+
+import java.util.List;
+
 @Mapper
-public interface WaterVolumeMapper {
+public interface WaterVolumeMapper extends BaseMapper<WaterVolume> {
     /**
      * 根据id选择水id
      * @param waterId 要查询的水量信息id
@@ -30,4 +34,6 @@ public interface WaterVolumeMapper {
             "#{effluentTotalNitrogen}, #{influentCod}, #{effluentCod}, #{influentBod5}, #{effluentBod5}, " +
             "#{effluentAmmoniaN}, #{sludgeGeneration})")
     int insertWaterVolume(WaterVolume waterVolume);
+    @Select("SELECT * FROM WATERVOLUME WHERE Factory_Id=#{factoryId}")
+    List<WaterVolume> getAllWaterVolumeInfoByFactoryId(Integer factoryId);
 }

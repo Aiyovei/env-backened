@@ -1,6 +1,7 @@
 package com.env.envbackend.Service;
 
 import com.env.envbackend.pojo.DisinfectantInfo;
+import io.swagger.models.auth.In;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
@@ -49,6 +50,8 @@ public interface DisinfectantInfoService{
      */
     boolean deleteById(String disinfectantId);
 
-    List<DisinfectantInfo>queryFactoryId(Integer factoryId);
+    List<DisinfectantInfo>queryDailyEmissionFactoryId(Integer factoryId);
+    Double queryAllDisInfectantInfoByFactoryId(Integer factoryId);
+
 
 }

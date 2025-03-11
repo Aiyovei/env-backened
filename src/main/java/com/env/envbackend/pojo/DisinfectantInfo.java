@@ -1,11 +1,14 @@
 package com.env.envbackend.pojo;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
 import org.springframework.data.annotation.Id;
+
 
 import java.io.Serializable;
 import java.util.Date;
@@ -22,6 +25,7 @@ public class DisinfectantInfo implements Serializable,Cloneable{
     /** 租户号 */
     @Id
     @GeneratedValue
+    @TableId(type = IdType.AUTO)
     @ApiModelProperty(name = "租户号",notes = "")
     private String disinfectantId ;
     /** 观测日期 */

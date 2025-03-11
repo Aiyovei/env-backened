@@ -89,7 +89,7 @@ public class DisinfectantInfoController{
     public List<DisinfectantInfo> getByFactoryId(@PathVariable Integer factoryId){
 //        System.out.println(1);
 //    return "1";
-        return disinfectantInfoService.queryFactoryId(factoryId);
+        return disinfectantInfoService.queryDailyEmissionFactoryId(factoryId);
     }
 
 }
