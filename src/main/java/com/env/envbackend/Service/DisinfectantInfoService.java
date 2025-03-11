@@ -49,6 +49,6 @@ public interface DisinfectantInfoService{
      */
     boolean deleteById(String disinfectantId);
 
-    List<DisinfectantInfo>queryDailyDisinfectantCo2EmissionsByFactoryId(Integer factoryId);
+    List<DisinfectantInfo>queryFactoryId(Integer factoryId);
 
 }
